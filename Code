@@ -1,2 +1,4 @@
 void loadMovieChoices(Movie listMovies[], int* movieCount);
+int selectMovie(Movie listMovies[], int movieCount);
+void startTimeChoice(Movie oneMovie, char selectedTime[]);
 
