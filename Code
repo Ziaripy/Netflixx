@@ -16,3 +16,9 @@ typedef struct {
     char selectedTime[10];
     int matinee;
 } Ticket;
+
+typedef struct {
+    float totalDue;
+    Ticket allTickets[10];
+    int ticketCount;
+} Order;
