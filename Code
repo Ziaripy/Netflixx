@@ -9,3 +9,10 @@ typedef struct {
     int showTimesCount;
 } Movie;
 
+typedef struct {
+    int age;
+    float price;
+    Movie selectedMovie;
+    char selectedTime[10];
+    int matinee;
+} Ticket;
