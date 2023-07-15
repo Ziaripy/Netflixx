@@ -1,1 +1,8 @@
-
+int main() {
+    Movie listMovies[10];
+    int movieCount = 0;
+    char startTime[10];
+    int movieSelection, buyTickets;
+    int totalTickets = 0;
+    char addAnother = 'Y';
+    float totalSales = 0;
