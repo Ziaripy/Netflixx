@@ -50,3 +50,12 @@ int main() {
         scanf(" %c", &addAnother);
         addAnother = toupper(addAnother);
     }
+
+  printf(" - - - - - - - - - - - - - - - - - - \n");
+
+    printf("Overview of Daily Sales\n");
+    printf("Total Tickets Sold: %d\n", totalTickets);
+    printf("Total Sales Amount: $ %.2f\n", totalSales);
+
+    return 0;
+}
