@@ -6,3 +6,21 @@ int main() {
     int totalTickets = 0;
     char addAnother = 'Y';
     float totalSales = 0;
+
+    loadMovieChoices(listMovies, &movieCount);
+
+    printf("Welcome to the movie theaters!\n");
+
+    while (addAnother != 'N') {
+        Ticket allTickets[10];
+        movieSelection = selectMovie(listMovies, movieCount);
+        startTimeChoice(listMovies[movieSelection], startTime);
+
+        printf("How many tickets would you like to purchase? ");
+        scanf("%d", &buyTickets);
+        totalTickets += buyTickets;
+
+        for (int x = 0; x < buyTickets; x++) {
+            Ticket oneTicket = purchaseTicket(listMovies[movieSelection], startTime, x + 1);
+            allTickets[x] = oneTicket;
+        }
