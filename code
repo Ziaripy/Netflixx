@@ -1,3 +1,9 @@
 void loadMovieChoices(Movie listMovies[], int* movieCount) {
 char pgMovies[5][10] = {"12:00 PM", "2:30 PM", "4:00 PM", "6:30 PM", "8:00 PM"};
 char pg13Movies[5][10] = {"1:30 PM", "3:00 PM", "5:30 PM", "7:00 PM", "9:30 PM"};
+
+ Movie movie1;
+    strcpy(movie1.name, "Ant-Man and the Wasp");
+    strcpy(movie1.rating, "(PG-13)");
+    memcpy(movie1.showTimes, pg13Movies, sizeof(pg13Movies));
+    movie1.showTimesCount = 5;
