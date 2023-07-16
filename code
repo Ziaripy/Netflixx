@@ -13,3 +13,10 @@ Movie movie2;
     strcpy(movie2.rating, "(PG-13)");
     memcpy(movie2.showTimes, pg13Movies, sizeof(pg13Movies));
     movie2.showTimesCount = 5;
+
+  Movie movie3;
+    strcpy(movie3.name, "MEGAN");
+    strcpy(movie3.rating, "(PG-13)");
+    memcpy(movie3.showTimes, pg13Movies, sizeof(pg13Movies));
+    movie3.showTimesCount = 5;
+
