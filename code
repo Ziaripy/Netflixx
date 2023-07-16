@@ -26,3 +26,9 @@ Movie movie4;
     memcpy(movie4.showTimes, pg13Movies, sizeof(pg13Movies));
     movie4.showTimesCount = 5;
 
+Movie movie5;
+    strcpy(movie5.name, "Lego Movie");
+    strcpy(movie5.rating, "(PG)");
+    memcpy(movie5.showTimes, pgMovies, sizeof(pgMovies));
+    movie5.showTimesCount = 5;
+
