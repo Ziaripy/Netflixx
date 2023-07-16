@@ -32,3 +32,8 @@ Movie movie5;
     memcpy(movie5.showTimes, pgMovies, sizeof(pgMovies));
     movie5.showTimesCount = 5;
 
+Movie movie6;
+    strcpy(movie6.name, "Space Jam");
+    strcpy(movie6.rating, "(PG)");
+    memcpy(movie6.showTimes, pgMovies, sizeof(pgMovies));
+    movie6.showTimesCount = 5;
