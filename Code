@@ -1,2 +1,3 @@
 void startTimeChoice(Movie oneMovie, char selectedTime[]) {
+    printf("Please choose a time:\n");
 }
