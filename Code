@@ -3,4 +3,8 @@ Ticket oneTicket;
 oneTicket.selectedMovie = selectedMovie;
 strcpy(oneTicket.selectedTime, startTime);  
 
+printf("Enter the age for ticket #%d: ", x);
+scanf("%d", &oneTicket.age);
+
+
 }
