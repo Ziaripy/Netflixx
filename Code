@@ -1,4 +1,6 @@
 Ticket purchaseTicket(Movie selectedMovie, const char startTime[], int x) {
-    Ticket oneTicket;
-   
+Ticket oneTicket;
+oneTicket.selectedMovie = selectedMovie;
+strcpy(oneTicket.selectedTime, startTime);  
+
 }
