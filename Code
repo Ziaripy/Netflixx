@@ -1,3 +1,10 @@
+
+void loadMovieChoices(Movie listMovies[], int* movieCount);
+int selectMovie(Movie listMovies[], int movieCount);
+void startTimeChoice(Movie oneMovie, char selectedTime[]);
+Ticket purchaseTicket(Movie selectedMovie, const char startTime[], int x);
+
+
 int main() {
     Movie listMovies[10];
     int movieCount = 0;
