@@ -1,1 +1,4 @@
-Ticket purchaseTicket(Movie selectedMovie, const char startTime[], int x)
+Ticket purchaseTicket(Movie selectedMovie, const char startTime[], int x) {
+    Ticket oneTicket;
+   
+}
