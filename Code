@@ -1,6 +1,5 @@
 void startTimeChoice(Movie oneMovie, char selectedTime[]) {
     printf("Please choose a time:\n");
-
     for (int i = 0; i < oneMovie.showTimesCount; i++) {
         printf("%s\n", oneMovie.showTimes[i]);
     }
