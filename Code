@@ -63,8 +63,16 @@ int main() {
     printf("Total Tickets Sold: %d\n", totalTickets);
     printf("Total Sales Amount: $ %.2f\n", totalSales);
 
-    return 0;
-    
+    return 0; 
+}
+ 
+void initializeMovie(Movie* movie, const char* name, const char* rating, const char showTimes[][10], int showTimesCount) {
+    strcpy(movie->name, name);
+    strcpy(movie->rating, rating);
+    memcpy(movie->showTimes, showTimes, showTimesCount * sizeof(char[10]));
+    movie->showTimesCount = showTimesCount;
+}   
+
 void loadMovieChoices(Movie listMovies[], int* movieCount) {
 char pgMovies[5][10] = {"12:00 PM", "2:30 PM", "4:00 PM", "6:30 PM", "8:00 PM"};
 char pg13Movies[5][10] = {"1:30 PM", "3:00 PM", "5:30 PM", "7:00 PM", "9:30 PM"};
