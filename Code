@@ -1,3 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    char name[100];
+    char rating[10];
+    char showTimes[5][10];
+    int showTimesCount;
+} Movie;
+
+typedef struct {
+    int age;
+    float price;
+    Movie selectedMovie;
+    char selectedTime[10];
+    int matinee;
+} Ticket;
+
+typedef struct {
+    float totalDue;
+    Ticket allTickets[10];
+    int ticketCount;
+} Order;
+
 void loadMovieChoices(Movie listMovies[], int* movieCount);
 int selectMovie(Movie listMovies[], int movieCount);
 void startTimeChoice(Movie oneMovie, char selectedTime[]);
