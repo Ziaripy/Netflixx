@@ -1,3 +1,94 @@
+
+void loadMovieChoices(Movie listMovies[], int* movieCount);
+int selectMovie(Movie listMovies[], int movieCount);
+void startTimeChoice(Movie oneMovie, char selectedTime[]);
+Ticket purchaseTicket(Movie selectedMovie, const char startTime[], int x);
+
+
+int main() {
+    Movie listMovies[10];
+    int movieCount = 0;
+    char startTime[10];
+    int movieSelection, buyTickets;
+    int totalTickets = 0;
+    char addAnother = 'Y';
+    float totalSales = 0;
+
+    loadMovieChoices(listMovies, &movieCount);
+
+    printf("Welcome to the movie theaters!\n");
+
+    while (addAnother != 'N') {
+        Ticket allTickets[10];
+        movieSelection = selectMovie(listMovies, movieCount);
+        startTimeChoice(listMovies[movieSelection], startTime);
+
+        printf("How many tickets would you like to purchase? ");
+        scanf("%d", &buyTickets);
+        totalTickets += buyTickets;
+
+        for (int x = 0; x < buyTickets; x++) {
+            Ticket oneTicket = purchaseTicket(listMovies[movieSelection], startTime, x + 1);
+            allTickets[x] = oneTicket;
+        }
+
+    printf(" - - - - - - - - - - - - - - - - - - \n");
+
+        Order oneOrder;
+        oneOrder.totalDue = 0.00;
+        for (int i = 0; i < buyTickets; i++) {
+            Ticket* oneTicket = &allTickets[i];
+            oneTicket->price = 0;
+            oneTicket->matinee = 0;
+            if (oneTicket->selectedTime[0] < '5') {
+                oneTicket->price = 5.50;
+                oneTicket->matinee = 1;
+            } else {
+                oneTicket->price = (oneTicket->age < 12 || oneTicket->age >= 65) ? 7.00 : 10.50;
+            }
+            oneOrder.totalDue += oneTicket->price;
+        }
+
+        printf("You have selected %d tickets to see %s with a start time of %s\n", buyTickets, allTickets[0].selectedMovie.name, allTickets[0].selectedTime);
+        totalSales += oneOrder.totalDue;
+        printf("Total Ticket Price: $ %.2f\n", oneOrder.totalDue);
+
+        printf("Is there another customer? (Y/N) ");
+        scanf(" %c", &addAnother);
+        addAnother = toupper(addAnother);
+    }
+
+  printf(" - - - - - - - - - - - - - - - - - - \n");
+
+    printf("Overview of Daily Sales\n");
+    printf("Total Tickets Sold: %d\n", totalTickets);
+    printf("Total Sales Amount: $ %.2f\n", totalSales);
+
+    return 0; 
+}
+ 
+void initializeMovie(Movie* movie, const char* name, const char* rating, const char showTimes[][10], int showTimesCount) {
+    strcpy(movie->name, name);
+    strcpy(movie->rating, rating);
+    memcpy(movie->showTimes, showTimes, showTimesCount * sizeof(char[10]));
+    movie->showTimesCount = showTimesCount;
+}   
+
+void loadMovieChoices(Movie listMovies[], int* movieCount) {
+char pgMovies[5][10] = {"12:00 PM", "2:30 PM", "4:00 PM", "6:30 PM", "8:00 PM"};
+char pg13Movies[5][10] = {"1:30 PM", "3:00 PM", "5:30 PM", "7:00 PM", "9:30 PM"};
+
+    initializeMovie(&listMovies[0], "Ant-Man and the Wasp", "(PG-13)", pg13Movies, 5);
+    initializeMovie(&listMovies[1], "80 for Brady", "(PG-13)", pg13Movies, 5);
+    initializeMovie(&listMovies[2], "MEGAN", "(PG-13)", pg13Movies, 5);
+    initializeMovie(&listMovies[3], "Avatar: The way of water", "(PG-13)", pg13Movies, 5);
+    initializeMovie(&listMovies[4], "Lego Movie", "(PG)", pgMovies, 5);
+    initializeMovie(&listMovies[5], "Space Jam", "(PG)", pgMovies, 5);
+
+    *movieCount = 6;
+
+}
+
 int selectMovie(Movie listMovies[], int movieCount) {
     printf("Please choose what movie you would like to see:\n");
     for (int i = 0; i < movieCount; i++) {
